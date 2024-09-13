@@ -24,8 +24,8 @@ function RoleSelectionScreen() {
       <label htmlFor="role-select">Select App</label>
       <select name="roles" id="role-select" onChange={handleRoleChange}>
         <option value="">Select app</option>
-        <option value="app">12% club</option>
-        <option value="captain_app_home">CAPTAIN APP</option>
+        <option value="app">Consumer App</option>
+        <option value="captain_app_home">Captian App</option>
       </select>
     </div>
   );

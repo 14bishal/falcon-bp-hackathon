@@ -2,7 +2,7 @@
     width: 100%;
     height: calc(100% - 66px);
     overflow-y: auto;
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
         display: none !important;
     }
 }

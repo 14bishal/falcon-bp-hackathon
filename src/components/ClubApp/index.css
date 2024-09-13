@@ -1,38 +1,118 @@
 .app-container {
-    width: 96%;
-    height: calc(100% - 48px);
-    max-height: 23%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  width: 95%;
+  height: calc(100% - 48px);
+  max-height: 23%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.qr-container {
+    width: 95%;
     background: #fff;
-    border-radius: 10px;
-    padding: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.text-1 {
+    font-size: 18px;
+  word-break: normal;
+  color: #000;
+  margin-bottom: 14px;
 }
 
 .refer {
-    width: 58%;
+  width: 58%;
 }
 
 .refer-section {
-    width: 42%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .text {
-    font-size: 26px;
-    font-weight: 700;
-    word-break: break-all;
-    color: #000;
-    margin-bottom: 14px;
+  font-size: 26px;
+  font-weight: 700;
+  word-break: break-all;
+  color: #000;
+  margin-bottom: 14px;
 }
 
 .refer-cta {
-    border-radius: 4px;
-    background: #2b80ff;
-    border: 2px solid #2b80ff;
-    padding: 4px 8px;
-    cursor: pointer;
+  border-radius: 4px;
+  background: #2b80ff;
+  border: 2px solid #2b80ff;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.stats-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.stats-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.count {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.table-content {
+    height: calc(100% - 327px);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* th {
+  background-color: #f2f2f2;
+} */
+
+.btn {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.rejected {
+  background-color: red;
+}
+
+.success {
+  background-color: green;
 }
