@@ -13,7 +13,8 @@
 }
 
 .cta {
-width: 50%;
+  width: 50%;
+  max-width: fit-content;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -23,6 +24,7 @@ width: 50%;
   background-color: #646cff;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #fff;
 }
 .cta:hover {
   background-color: #1a1a1a;
