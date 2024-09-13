@@ -1,0 +1,54 @@
+.user-card {
+    width: 100%;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #EEEEFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;  
+    color: #4F579D;  
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+}
+
+.shop-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.merchant-name {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.address .phone-number .email {
+    font-size: 10px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.button {
+    background: #2b80ff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 2px solid #2b80ff;
+    margin-top: 10px;
+    cursor: pointer;
+}

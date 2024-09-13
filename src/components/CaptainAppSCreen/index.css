@@ -1,0 +1,43 @@
+.captain-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: calc(100% - 45px);
+}
+
+.tab-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border-radius: 8px;
+    border: 2px solid #646cff;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.each-tab, .highlight-tab {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s; /* Smooth transition for hover */
+    padding: 4px 10px;
+}
+
+/* Specific styles for the active (highlighted) tab */
+.highlight-tab {
+    background: #b6b6ec;
+    color: black;
+}
+
+.curve-border {
+    border-radius: 6px 0 0 6px;
+}
+
+.curve-border-2{
+    border-radius: 0 6px 6px 0;
+}

@@ -1,0 +1,34 @@
+.location-content {
+  width: 100%;
+  height: calc(100% - 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-message {
+    font-size: 10px;
+    color: #e4383b;
+}
+
+.cta {
+width: 50%;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #646cff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.cta:hover {
+  background-color: #1a1a1a;
+  border-color: #646cff;
+}
+.cta:focus,
+.cta:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
