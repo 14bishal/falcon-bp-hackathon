@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 300px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 8px 0 4px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .success-message {
+            text-align: center;
+            color: green;
+            font-size: 18px;
+        }
+        .success-icon {
+            font-size: 48px;
+            color: green;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <img src='https://innovate.bharatpe.io/static/media/header-icon.f85adcc0.svg' alt='innovate' width={200} height={200} />
+    <h2><b>Referral Form</b></h2>
+    <form id="merchantForm">
+        <label for="refreeId">Refree ID</label>
+        <input type="text" id="refreeId" name="refreeId" value="12345" readonly>
+
+        <label for="merchantName">Merchant Name</label>
+        <input type="text" id="merchantName" name="merchantName" required>
+
+        <label for="merchantContact">Merchant Contact</label>
+        <input type="text" id="merchantContact" name="merchantContact" required>
+
+        <label for="shopName">Shop Name</label>
+        <input type="text" id="shopName" name="shopName" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="pinCode">Pin Code</label>
+        <input type="text" id="pinCode" name="pinCode" required>
+
+        <!-- Latitude and Longitude are hidden -->
+        <input type="hidden" id="lat" name="lat">
+        <input type="hidden" id="long" name="long">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="successMessage" class="success-message" style="display: none;">
+        <div class="success-icon">✔</div>
+        <p>Form submitted successfully!</p>
+    </div>
+
+    <div id="errorMessage" class="error-message">
+        <p>Error: Please allow location access before submitting the form.</p>
+    </div>
+</div>
+
+<script>
+    let locationAllowed = false; // Track if location access was granted
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the user's location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    document.getElementById('lat').value = position.coords.latitude;
+                    document.getElementById('long').value = position.coords.longitude;
+                    locationAllowed = true; // Location access is granted
+                },
+                function () {
+                    // Location access denied
+                    locationAllowed = false; // Location access was denied
+                }
+            );
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+
+        // Handle form submission
+        document.getElementById("merchantForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Check if location access was denied
+            if (!locationAllowed) {
+                document.getElementById("errorMessage").style.display = "block";
+                return; // Prevent submission
+            }
+
+            // Hide error message if visible
+            document.getElementById("errorMessage").style.display = "none";
+            
+            const submitButton = document.querySelector("button[type='submit']");
+            submitButton.disabled = true;
+            submitButton.style.opacity = "0.5";
+
+            // Get form data
+            const formData = {
+                refreeId: document.getElementById("refreeId").value,
+                merchantName: document.getElementById("merchantName").value,
+                merchantContact: document.getElementById("merchantContact").value,
+                shopName: document.getElementById("shopName").value,
+                email: document.getElementById("email").value,
+                pinCode: document.getElementById("pinCode").value,
+                lat: document.getElementById("lat").value,
+                long: document.getElementById("long").value
+            };
+console.log('formData', formData);
+            // Call the API (mocked API call for this example)
+            fetch('https://example.com/api/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message and hide the form
+                    document.getElementById("merchantForm").style.display = "none";
+                    document.getElementById("successMessage").style.display = "block";
+                } else {
+                    alert('Error submitting the form');
+                }
+            })
+            .catch(error => {
+                submitButton.disabled = false;
+                submitButton.style.opacity = "1";
+                alert('Error: ' + error);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

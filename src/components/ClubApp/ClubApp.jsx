@@ -41,7 +41,7 @@ function ClubApp() {
                     <div className='text-1'>Scan the QR or click on the link below to <strong>earn referred money.</strong></div>
                     <img src="https://hubble.bharatpe.in/static/media/qr-icon.bfc5eaa5.png" alt="qr" width={80} height={80} />
                     <div className='text'>OR</div>
-                    <a href="" target='_blank'>Refer link</a>
+                    <a href="public/referral-form.html" target='_blank'>Refer link</a>
                 </div>
             )}
             <div className='stats-container'>
