@@ -14,6 +14,60 @@ const CardSkeleton = () => {
 	);
 };
 
+// const LEADS = [
+//     {
+//         id: null,
+//         shopName: 'Adidas Store',
+//         placeId: 'ChIJVVVVVVUWDTkRcksISMMG580',
+//         businessStatus: 'OPERATIONAL',
+//         iconUrl: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png',
+//         rating: 3.6,
+//         userRatingsTotal: 48,
+//         permanentlyClosed: false,
+//         vicinity: 'Shop No 1 &2 Ground floor, Metropolitan Mall, मेहरौली-गुड़गांव मार्ग, सेक्टर २५, गुरुग्राम',
+//         merchantName: null,
+//         pinCode: '122002',
+//         lat: 28.4809085,
+//         lng: 77.0802798,
+//         southwestLat: 28.4795410197085,
+//         southwestLng: 77.07874896970849,
+//         northeastLat: 28.4822389802915,
+//         northeastLng: 77.0814469302915,
+//         formatted_address:
+//             '"Shop No 1 &2 Ground floor, Metropolitan Mall, मेहरौली-गुड़गांव मार्ग, DLF फेस 2, सेक्टर २५, गुरुग्राम, हरियाणा 122002, India"',
+//         placeDetailsName: '"Adidas Store"',
+//         source: 'FSE',
+//         status: 'PENDING',
+//         contactNumber: '"+91 124 404 9411"',
+//     },
+//     {
+//         id: null,
+//         shopName: 'Sigma Industries',
+//         placeId: 'ChIJSVmJtWAZDTkRH9tTCjfPHHA',
+//         businessStatus: 'CLOSED_TEMPORARILY',
+//         iconUrl: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/shopping-71.png',
+//         rating: 4.3,
+//         userRatingsTotal: 16,
+//         permanentlyClosed: true,
+//         vicinity: 'Udyog Vihar, Plot 769 Phase-5, Dundahera, Gurugram',
+//         merchantName: null,
+//         pinCode: '122016',
+//         lat: 28.504006,
+//         lng: 77.085709,
+//         southwestLat: 28.50271181970849,
+//         southwestLng: 77.08428566970849,
+//         northeastLat: 28.5054097802915,
+//         northeastLng: 77.08698363029151,
+//         formatted_address:
+//             '"Udyog Vihar, Plot 769 Phase-5, Dundahera, Phase V, Udyog Vihar, Sector 19, Gurugram, Haryana 122016, India"',
+//         placeDetailsName: '"Sigma Industries"',
+//         source: 'FSE',
+//         status: 'PENDING',
+//         contactNumber: '"+91 124 234 7962"',
+//     },
+// ];
+
+
 function CaptainAppScreen() {
 	const location = useLocation();
 
@@ -30,6 +84,7 @@ function CaptainAppScreen() {
 	const handleClick = (val) => {
 		setIsLoading(true);
 		setActiveTab(val);
+		setIsLoading(false);
 	};
 	
 	const fetchLeads = useCallback(async () => {
@@ -62,22 +117,17 @@ function CaptainAppScreen() {
 	useEffect(() => {
 		if (latitude && longitude) {
 			console.log('dfgdf');
-			// fetchLeads(); // Fetch leads if latitude and longitude exist
+			fetchLeads(); // Fetch leads if latitude and longitude exist
 		}
-	}, [latitude, longitude]); // Re-run useEffect if lat/long change
+	}, [fetchLeads, latitude, longitude]); // Re-run useEffect if lat/long change
 
 
 	const leadList = useMemo(() => {
 		if(activeTab === 'todo') {
-			leads?.filter((itm) => itm?.status === 'PENDING');
+			return leads?.filter((itm) => itm?.status === 'PENDING');
 		} else {
-			leads?.filter((itm) => itm?.status === 'ONBOARDED')
+			return leads?.filter((itm) => itm?.status === 'ONBOARDED')
 		}
-
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 3000);
-		return 
 	}, [activeTab, leads])
 
 	return (
