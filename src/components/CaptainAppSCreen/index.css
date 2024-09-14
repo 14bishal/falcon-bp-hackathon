@@ -1,43 +1,79 @@
 .captain-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    height: calc(100% - 45px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: calc(100% - 45px);
 }
 
 .tab-container {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    border-radius: 8px;
-    border: 2px solid #646cff;
-    color: #fff;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border-radius: 8px;
+  border: 2px solid #646cff;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
-.each-tab, .highlight-tab {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.3s; /* Smooth transition for hover */
-    padding: 4px 10px;
+.each-tab,
+.highlight-tab {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s; /* Smooth transition for hover */
+  padding: 4px 10px;
 }
 
 /* Specific styles for the active (highlighted) tab */
 .highlight-tab {
-    background: #b6b6ec;
-    color: black;
+  background: #b6b6ec;
+  color: black;
 }
 
 .curve-border {
-    border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 6px;
 }
 
-.curve-border-2{
-    border-radius: 0 6px 6px 0;
+.curve-border-2 {
+  border-radius: 0 6px 6px 0;
+}
+
+.skeleton-card {
+  width: 100%;
+  height: 150px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  animation: pulse 1s infinite;
+}
+
+.skeleton-header {
+  width: 50%;
+  height: 20px;
+  background-color: #e0e0e0;
+  margin: 10px;
+}
+
+.skeleton-body {
+  width: 90%;
+  height: 100px;
+  background-color: #e0e0e0;
+  margin: 10px;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
 }

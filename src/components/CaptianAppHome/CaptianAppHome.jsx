@@ -48,7 +48,7 @@ function CaptianAppHome() {
 
     const routeToDashboard = () => {
         console.log('userLocation', userLocation);
-        navigate('/captain_app_dashboard')
+        navigate(`/captain_app_dashboard?lat=${userLocation?.latitude}&long=${userLocation?.longitude}`)
     }
 
 
