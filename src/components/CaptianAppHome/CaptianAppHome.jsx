@@ -54,7 +54,7 @@ function CaptianAppHome() {
 
     return (
         <>
-            <h3>CAPTAIN APP SCREEN</h3>
+            <h3>CAPTAIN APP</h3>
             <div className='location-content'>
                 <img width="200" height="200" src="https://img.icons8.com/bubbles/100/place-marker.png" alt="order-delivered" />
                 <h4>We need to fetch your location, please click on the below button</h4>
