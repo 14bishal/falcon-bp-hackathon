@@ -80,7 +80,6 @@ function CaptainAppScreen() {
 	const [isLoading, setIsLoading] = useState(true); // Loading state for skeleton
 	const [leads, setLeads] = useState([]); // Data from the API
 	const [error, setError] = useState(null); // Handle API error
-
 	const handleClick = (val) => {
 		setIsLoading(true);
 		setActiveTab(val);
@@ -90,13 +89,7 @@ function CaptainAppScreen() {
 	const fetchLeads = useCallback(async () => {
 		try {
 			const response = await fetch(
-				`https://f31d-14-194-67-242.ngrok-free.app/leadGenerator/getLeads?latitude=${latitude}&longitude=${longitude}&radius=150000&source=FSE`, {
-					method: 'GET',
-					headers: {
-						'Access-Control-Allow-Origin': 'http://localhost:5173/',
-						'Content-Type': 'application/json'
-					},
-				}
+				`http://localhost:8080/leadGenerator/getLeads?latitude=${latitude}&longitude=${longitude}&radius=150000&source=FSE`
 			);
 
 			if (!response.ok) {
@@ -116,7 +109,6 @@ function CaptainAppScreen() {
 	// Fetch data from API
 	useEffect(() => {
 		if (latitude && longitude) {
-			console.log('dfgdf');
 			fetchLeads(); // Fetch leads if latitude and longitude exist
 		}
 	}, [fetchLeads, latitude, longitude]); // Re-run useEffect if lat/long change
@@ -129,7 +121,6 @@ function CaptainAppScreen() {
 			return leads?.filter((itm) => itm?.status === 'ONBOARDED')
 		}
 	}, [activeTab, leads])
-
 	return (
 		<>
 			<h3>CAPTAIN APP SCREEN</h3>
